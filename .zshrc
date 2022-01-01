@@ -60,7 +60,6 @@ plugins=(
 
 ### TMUX
 ZSH_TMUX_AUTOSTART=true
-ZSH_TMUX_AUTOCONNECT=false
 ZSH_TMUX_UNICODE=true 
 
 source $ZSH/oh-my-zsh.sh
