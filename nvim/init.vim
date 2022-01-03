@@ -1,1 +1,3 @@
-set termguicolors
+lua require('szczepad.options')
+
+
