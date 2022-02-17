@@ -11,5 +11,10 @@ lsp_installer.on_server_ready(function(server)
       capabilities = require("szczepad.lsp.handlers").capabilities,
     }
 
+    if server.name == "jsonls" then
+      local jsonls_opts = require("szczepad.lsp.settings.jsonls")
+      opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+  	end
+  
     server:setup(opts)
 end)
