@@ -30,6 +30,9 @@ keymap("n","<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n","<S-l>", ":bnext<CR>", opts)
 keymap("n","<S-h>", ":bprevious<CR>",opts)
 
+-- Telescope
+keymap("n","<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",opts)
+keymap("n","<c-t>", "<cmd>Telescope live_grep<cr>",opts)
 -- Visual --
 -- Indent
 keymap("v","<", "<gv", opts)

@@ -60,7 +60,11 @@ return packer.startup(function(use)
   -- Snippets
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
-  
+
+  -- Telescope
+  use "BurntSushi/ripgrep"
+  use "nvim-telescope/telescope.nvim" 
+
   -- Automatically set up config after cloning packer
   -- This has to be at the end
   if PACKER_BOOTSTRAP then
