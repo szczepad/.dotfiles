@@ -45,6 +45,8 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Functions used in a lot of plugins
   use "morhetz/gruvbox"
+  use "windwp/nvim-autopairs"
+  use "numToStr/Comment.nvim"
 
   -- LSP 
   use "neovim/nvim-lspconfig"
@@ -70,6 +72,7 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+  use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- Automatically set up config after cloning packer
   -- This has to be at the end
