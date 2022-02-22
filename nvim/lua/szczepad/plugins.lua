@@ -74,6 +74,8 @@ return packer.startup(function(use)
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
+  -- Git 
+  use "lewis6991/gitsigns.nvim"
   -- Automatically set up config after cloning packer
   -- This has to be at the end
   if PACKER_BOOTSTRAP then
