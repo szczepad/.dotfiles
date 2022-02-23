@@ -8,5 +8,6 @@ lua require('szczepad.treesitter')
 lua require('szczepad.autopairs')
 lua require('szczepad.comment')
 lua require('szczepad.gitsigns')
+lua require('szczepad.nvim-tree')
 
 colorscheme gruvbox
