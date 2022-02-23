@@ -18,7 +18,7 @@ keymap("n","<C-k>","<C-w>k", opts)
 keymap("n","<C-l>","<C-w>l", opts)
 
 -- Leader + e for File Explorer
-keymap("n", "<leader>e", ":Lex 30<cr>",opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>",opts)
 
 --Resize with arrows
 keymap("n","<C-Up>", ":resize +2<CR>", opts)
@@ -32,7 +32,8 @@ keymap("n","<S-h>", ":bprevious<CR>",opts)
 
 -- Telescope
 keymap("n","<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",opts)
-keymap("n","<c-t>", "<cmd>Telescope live_grep<cr>",opts)
+keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+
 -- Visual --
 -- Indent
 keymap("v","<", "<gv", opts)
