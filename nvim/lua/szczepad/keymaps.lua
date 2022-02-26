@@ -35,7 +35,9 @@ keymap("n","<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require(
 keymap("n", "<c-f>", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Git
-keymap("n","<leader>g", ":Git<CR>",opts)
+keymap("n","<leader>gs", ":Git<CR>",opts)
+keymap("n","<leader>gc", ":Git commit<CR>",opts)
+keymap("n","<leader>gp", ":Git push<CR>",opts)
 
 -- Visual --
 -- Indent
