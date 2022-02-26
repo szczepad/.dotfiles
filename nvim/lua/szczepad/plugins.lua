@@ -51,6 +51,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
   use "akinsho/toggleterm.nvim"
+  use "preservim/tagbar"
 
   -- LSP 
   use "neovim/nvim-lspconfig"
@@ -82,6 +83,9 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim"
   use "tpope/vim-fugitive"
   use "vim-airline/vim-airline"
+
+  -- Golang
+  use "fatih/vim-go"
 
   -- Automatically set up config after cloning packer
   -- This has to be at the end
