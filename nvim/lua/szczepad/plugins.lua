@@ -80,6 +80,9 @@ return packer.startup(function(use)
 
   -- Git 
   use "lewis6991/gitsigns.nvim"
+  use "tpope/vim-fugitive"
+  use "vim-airline/vim-airline"
+
   -- Automatically set up config after cloning packer
   -- This has to be at the end
   if PACKER_BOOTSTRAP then
