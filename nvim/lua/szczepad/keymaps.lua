@@ -42,6 +42,13 @@ keymap("n","<leader>gs", ":Git<CR>",opts)
 keymap("n","<leader>gc", ":Git commit<CR>",opts)
 keymap("n","<leader>gp", ":Git push<CR>",opts)
 
+-- Golang
+keymap("n","<leader>pb", ":GoBuild<CR>",opts)
+keymap("n","<leader>pt", ":GoTest<CR>",opts)
+keymap("n","<leader>pr", ":GoRun<CR>",opts)
+keymap("n","<leader>pcc", ":GoCoverage<CR>",opts)
+keymap("n","<leader>pct", ":GoCoverageToggle<CR>",opts)
+keymap("n","<leader>pl", ":GoMetaLinter<CR>",opts)
 -- Visual --
 -- Indent
 keymap("v","<", "<gv", opts)
