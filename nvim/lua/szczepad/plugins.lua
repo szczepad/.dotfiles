@@ -52,6 +52,7 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "akinsho/toggleterm.nvim"
   use "preservim/tagbar"
+  use "moll/vim-bbye"
 
   -- LSP 
   use "neovim/nvim-lspconfig"
