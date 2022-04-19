@@ -43,13 +43,15 @@ local kind_icons = {
   Operator = "",
   TypeParameter = "",
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
+  },
+  window = {
+    documentation = cmp.config.window.bordered()
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -118,9 +120,6 @@ cmp.setup {
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
-  },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   },
   experimental = {
     ghost_text = false,

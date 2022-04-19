@@ -46,11 +46,11 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Functions used in a lot of plugins
   use "morhetz/gruvbox"
   use "windwp/nvim-autopairs"
-  use "numToStr/Comment.nvim"
+  use {"numToStr/Comment.nvim", tag = 'v0.6'}
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  use "akinsho/bufferline.nvim"
-  use "akinsho/toggleterm.nvim"
+  use {"akinsho/bufferline.nvim", branch = 'main'}
+  use {"akinsho/toggleterm.nvim", branch = 'main'}
   use "preservim/tagbar"
   use "moll/vim-bbye"
 
