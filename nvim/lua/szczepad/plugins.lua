@@ -88,6 +88,9 @@ return packer.startup(function(use)
   -- Golang
   use "fatih/vim-go"
 
+  -- Javascript
+  use "prettier/vim-prettier"
+
   -- Automatically set up config after cloning packer
   -- This has to be at the end
   if PACKER_BOOTSTRAP then
