@@ -57,7 +57,7 @@ return packer.startup(function(use)
   -- LSP 
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
-
+  use "jose-elias-alvarez/null-ls.nvim"
   -- CMP plugins
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-buffer"
@@ -87,9 +87,6 @@ return packer.startup(function(use)
 
   -- Golang
   use "fatih/vim-go"
-
-  -- Javascript
-  use "prettier/vim-prettier"
 
   -- Automatically set up config after cloning packer
   -- This has to be at the end

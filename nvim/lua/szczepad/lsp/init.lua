@@ -5,3 +5,4 @@ end
 
 require("szczepad.lsp.lsp-installer")
 require("szczepad.lsp.handlers").setup()
+require("szczepad.lsp.null-ls")
