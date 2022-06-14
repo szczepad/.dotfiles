@@ -11,6 +11,7 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export PATH="$PATH:$GOPATH/bin"
 # Flutter
 export PATH="$PATH:/home/dennis/flutter/bin"
 export CHROME_EXECUTABLE="/usr/bin/chromium"
