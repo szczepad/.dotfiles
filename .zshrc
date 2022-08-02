@@ -10,11 +10,8 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export PATH="$PATH:$GOPATH/bin"
-# Flutter
-export PATH="$PATH:/home/dennis/flutter/bin"
-export CHROME_EXECUTABLE="/usr/bin/chromium"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -57,20 +54,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-  nvm
+	nvm
 	sudo
 	tmux
 	virtualenv
-  z
+	z
 	zsh-autosuggestions
 )
 
 ### TMUX
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_UNICODE=true 
-
-## Android
-export ANDROID_SDK_ROOT=~/Android/Sdk
 
 source $ZSH/oh-my-zsh.sh
 
