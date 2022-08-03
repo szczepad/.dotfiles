@@ -15,6 +15,9 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:monospace 8
 
+default_border pixel 1 
+default_floating_border pixel 1
+for_window [class="^.*"] border pixel 1
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -38,6 +41,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Set random Background Image 
 exec --no-startup-id feh --no-fehbg --bg-fill --randomize ~/Wallpaper/*
@@ -175,9 +181,3 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
