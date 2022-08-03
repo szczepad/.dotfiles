@@ -13,3 +13,4 @@ lua require('szczepad.bufferline')
 lua require('szczepad.toggleterm')
 
 colorscheme gruvbox
+set termguicolors
