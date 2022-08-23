@@ -11,6 +11,7 @@ lua require('szczepad.gitsigns')
 lua require('szczepad.nvim-tree')
 lua require('szczepad.bufferline')
 lua require('szczepad.toggleterm')
+lua require('szczepad.lualine')
 
 colorscheme gruvbox
 set termguicolors
