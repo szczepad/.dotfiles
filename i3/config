@@ -61,8 +61,15 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# Set workspaces 
+set $obsidian "6: obsidian"
+
 # applications
 bindsym $mod+f exec firefox-developer-edition
+bindsym $mod+o exec /home/dennis/bin/appimages/obsidian
+
+# Workspace bindings 
+assign [class="obsidian" instance="obsidian"] $obsidian
 
 # kill focused window
 bindsym $mod+Shift+q kill
