@@ -44,7 +44,6 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Functions used in a lot of plugins
-  use "morhetz/gruvbox"
   use "windwp/nvim-autopairs"
   use {"numToStr/Comment.nvim", tag = 'v0.6'}
   use "kyazdani42/nvim-web-devicons"
@@ -53,6 +52,10 @@ return packer.startup(function(use)
   use {"akinsho/toggleterm.nvim", branch = 'main'}
   use "preservim/tagbar"
   use "moll/vim-bbye"
+  use "ap/vim-css-color"
+
+  -- Themes
+  use "morhetz/gruvbox"
 
   -- LSP 
   use "neovim/nvim-lspconfig"
@@ -92,7 +95,7 @@ return packer.startup(function(use)
   use "tpope/vim-fugitive"
 
   -- Golang
-  use "fatih/vim-go"
+  -- use "fatih/vim-go"
 
   -- Automatically set up config after cloning packer
   -- This has to be at the end
