@@ -19,7 +19,6 @@ keymap("n","<C-l>","<C-w>l", opts)
 
 -- Leader + e for File Explorer
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>",opts)
-keymap("n", "<leader>r", ":NvimTreeRefresh<CR>",opts)
 
 --Resize with arrows
 keymap("n","<C-Up>", ":resize +2<CR>", opts)
@@ -49,8 +48,9 @@ keymap("n","<leader>gb", ":GoBuild<CR>",opts)
 keymap("n","<leader>gt", ":GoTest<CR>",opts)
 keymap("n","<leader>gr", ":GoRun<CR>",opts)
 keymap("n","<leader>gz", ":GoCoverage<CR>",opts)
-keymap("n","<leader>gzz", ":GoCoverageToggle<CR>",opts)
-keymap("n","<leader>gl", ":GoMetaLinter<CR>",opts)
+keymap("n","<leader>gl", ":GoLint<CR>",opts)
+keymap("n","<leader>gv", ":GoVet<CR>",opts)
+
 -- Visual --
 -- Indent
 keymap("v","<", "<gv", opts)
@@ -66,5 +66,3 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv",opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv",opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv",opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv",opts)

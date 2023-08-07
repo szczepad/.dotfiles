@@ -52,7 +52,6 @@ return packer.startup(function(use)
   use {"akinsho/toggleterm.nvim", branch = 'main'}
   use "preservim/tagbar"
   use "moll/vim-bbye"
-  use "ap/vim-css-color"
 
   -- Themes
   use "morhetz/gruvbox"
@@ -95,7 +94,8 @@ return packer.startup(function(use)
   use "tpope/vim-fugitive"
 
   -- Golang
-  -- use "fatih/vim-go"
+  -- use {"fatih/vim-go", tag = 'v1.28'}
+  use 'ray-x/go.nvim'
 
   -- Automatically set up config after cloning packer
   -- This has to be at the end
