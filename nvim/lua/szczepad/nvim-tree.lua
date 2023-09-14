@@ -10,13 +10,13 @@ local function my_on_attach(bufnr)
 
   -- custom mappings
   vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
-  vim.keymap.set("n", "l", api.node.open.edit)
-  vim.keymap.set("n", "h", api.node.navigate.parent_close)
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts('Open'))
+    vim.keymap.set('n', 'l',     api.node.open.edit,                    opts('Open'))
   vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
 end
 
 require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
-  on_attach = my_on_attach,
+    on_attach = my_on_attach,
   auto_reload_on_write = true,
   disable_netrw = false,
   hijack_cursor = false,
@@ -135,5 +135,6 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
       profile = false,
     },
   },
+
 }) -- END_DEFAULT_OPTS
 
