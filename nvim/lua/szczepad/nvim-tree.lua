@@ -1,17 +1,22 @@
+local function my_on_attach(bufnr)
+  local api = require "nvim-tree.api"
 
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
-  return
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- custom mappings
+  vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
+  vim.keymap.set("n", "l", api.node.open.edit)
+  vim.keymap.set("n", "h", api.node.navigate.parent_close)
+  vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
-
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
-require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
+require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
+  on_attach = my_on_attach,
   auto_reload_on_write = true,
   disable_netrw = false,
   hijack_cursor = false,
@@ -27,14 +32,6 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     number = false,
     relativenumber = false,
     signcolumn = "yes",
-    mappings = {
-      custom_only = false,
-      list = {
-        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-        { key = "h", cb = tree_cb "close_node" },
-        { key = "v", cb = tree_cb "vsplit" },
-      },
-    },
   },
   renderer = {
     indent_markers = {
@@ -138,5 +135,5 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       profile = false,
     },
   },
-} -- END_DEFAULT_OPTS
+}) -- END_DEFAULT_OPTS
 

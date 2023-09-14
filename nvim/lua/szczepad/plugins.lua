@@ -46,8 +46,8 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Functions used in a lot of plugins
   use "windwp/nvim-autopairs"
   use {"numToStr/Comment.nvim", tag = 'v0.6'}
-  use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
+  use "nvim-tree/nvim-web-devicons"
+  use "nvim-tree/nvim-tree.lua"
   use {"akinsho/bufferline.nvim", branch = 'main'}
   use {"akinsho/toggleterm.nvim", branch = 'main'}
   use "preservim/tagbar"
@@ -58,7 +58,8 @@ return packer.startup(function(use)
 
   -- LSP 
   use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
+  use { "williamboman/mason.nvim" }
+  use { "williamboman/mason-lspconfig.nvim" }
   use "jose-elias-alvarez/null-ls.nvim"
   -- CMP plugins
   use "hrsh7th/cmp-nvim-lsp"
@@ -94,8 +95,17 @@ return packer.startup(function(use)
   use "tpope/vim-fugitive"
 
   -- Golang
-  -- use {"fatih/vim-go", tag = 'v1.28'}
   use 'ray-x/go.nvim'
+
+  -- ChatGPT
+  use({
+  "jackMort/ChatGPT.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+})
 
   -- Automatically set up config after cloning packer
   -- This has to be at the end
