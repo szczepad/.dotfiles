@@ -16,5 +16,6 @@ require('szczepad.bufferline')
 require('szczepad.toggleterm')
 require('szczepad.lualine')
 require('szczepad.chatgpt')
+require('szczepad.whichkey')
 
 vim.cmd.colorscheme('gruvbox')

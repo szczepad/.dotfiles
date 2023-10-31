@@ -3,6 +3,6 @@ if not status_ok then
   return
 end
 
-require("szczepad.lsp.lsp-installer")
+require "szczepad.lsp.mason"
 require("szczepad.lsp.handlers").setup()
 require("szczepad.lsp.null-ls")

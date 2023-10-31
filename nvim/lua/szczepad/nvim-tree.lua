@@ -11,7 +11,7 @@ local function my_on_attach(bufnr)
   -- custom mappings
   vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
   vim.keymap.set("n", "h", api.node.navigate.parent_close, opts('Open'))
-    vim.keymap.set('n', 'l',     api.node.open.edit,                    opts('Open'))
+  vim.keymap.set('n', 'l',     api.node.open.edit,                    opts('Open'))
   vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
 end
 
@@ -26,7 +26,6 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
   update_cwd = false,
   view = {
     width = 30,
-    hide_root_folder = false,
     side = "left",
     preserve_window_proportions = false,
     number = false,
@@ -34,6 +33,7 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
     signcolumn = "yes",
   },
   renderer = {
+    highlight_git = true,
     indent_markers = {
       enable = false,
       icons = {

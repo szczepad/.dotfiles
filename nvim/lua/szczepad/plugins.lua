@@ -52,21 +52,37 @@ return packer.startup(function(use)
   use {"akinsho/toggleterm.nvim", branch = 'main'}
   use "preservim/tagbar"
   use "moll/vim-bbye"
+ 	use "folke/which-key.nvim"
 
   -- Themes
   use "morhetz/gruvbox"
 
   -- LSP 
   use "neovim/nvim-lspconfig"
-  use { "williamboman/mason.nvim" }
-  use { "williamboman/mason-lspconfig.nvim" }
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim"
+  use "RRethy/vim-illuminate"
+  use({
+  "utilyre/barbecue.nvim",
+  tag = "*",
+  requires = {
+    "SmiteshP/nvim-navic",
+    "nvim-tree/nvim-web-devicons", -- optional dependency
+  },
+  after = "nvim-web-devicons", -- keep this if you're using NvChad
+  config = function()
+    require("barbecue").setup()
+  end,
+})
+
   -- CMP plugins
-  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-cmdline"
-  use "hrsh7th/nvim-cmp"
 
   -- Snippets
   use "L3MON4D3/LuaSnip"
@@ -96,6 +112,9 @@ return packer.startup(function(use)
 
   -- Golang
   use 'ray-x/go.nvim'
+
+  -- Rust
+  use 'rust-lang/rust.vim'
 
   -- ChatGPT
   use({
