@@ -39,8 +39,9 @@ keymap("n", "<c-f>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n","<leader>t",":TagbarToggle<CR>",opts)
 
 -- Git
-keymap("n","<leader>ss", ":Git<CR>",opts)
-keymap("n","<leader>pp", ":Git push<CR>",opts)
+keymap("n","<leader>gs", ":Git<CR>",opts)
+keymap("n","<leader>gc", ":Git commit<CR>",opts)
+keymap("n","<leader>gp", ":Git push<CR>",opts)
 
 -- Golang
 keymap("n","<leader>gb", ":GoBuild<CR>",opts)

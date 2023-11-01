@@ -1,4 +1,7 @@
-local function my_on_attach(bufnr)
+return {
+  "nvim-tree/nvim-tree.lua",
+  config = function()
+    local function my_on_attach(bufnr)
   local api = require "nvim-tree.api"
 
   local function opts(desc)
@@ -136,5 +139,6 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
     },
   },
 
-}) -- END_DEFAULT_OPTS
-
+})
+  end,-- END_DEFAULT_OPTS
+}
