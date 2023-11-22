@@ -20,6 +20,20 @@ keymap("n","<C-l>","<C-w>l", opts)
 -- Leader + e for File Explorer
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>",opts)
 
+-- Aerial
+keymap("n", "<leader>a", ":NvimTreeClose<CR>:AerialToggle<CR>",opts)
+
+-- LSP
+keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+
+-- Trouble
+keymap("n", "<leader>xx", "<cmd>lua require'trouble'.toggle()<CR>",opts )
+keymap("n", "<leader>xw", "<cmd>lua require'trouble'.toggle('workspace_diagnostics')<CR>",opts)
+keymap("n", "<leader>xd", "<cmd>lua require'trouble'.toggle('document_diagnostics')<CR>",opts)
+keymap("n", "<leader>xq", "<cmd>lua require'trouble'.toggle('quickfix')<CR>",opts)
+keymap("n", "<leader>xl", "<cmd>lua require'trouble'.toggle('loclist')<CR>",opts)
+keymap("n", "gR", "<cmd>lua require'trouble'.toggle('lsp_references')<CR>",opts)
+
 --Resize with arrows
 keymap("n","<C-Up>", ":resize +2<CR>", opts)
 keymap("n","<C-Down>", ":resize -2<CR>", opts)
