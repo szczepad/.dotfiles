@@ -50,11 +50,7 @@ return {
         enable_rename = true,
         enable_close = true,
         enable_close_on_slash = false,
-      },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-      },
+        },
       incremental_selection = {
         enable = true,
         keymaps = {

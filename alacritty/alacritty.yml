@@ -104,18 +104,18 @@ env:
 # Font configuration
 font:
   normal:
-    family: "Hasklug Nerd Font"
+    family: "MonaspiceNe Nerd Font"
     style: Light
 
   bold:
-    family: "Hasklug Nerd Font"
+    family: "MonaspiceNe Nerd Font"
     style: Semibold
 
   italic:
-    family: "Hasklug Nerd Font"
+    family: "MonaspiceNe Nerd Font"
 
   bold_italic:
-    family: "Hasklug Nerd Font"
+    family: "MonaspiceNe Nerd Font"
   
   size: 11.0
 
@@ -397,7 +397,7 @@ colors:
   #thickness: 0.15
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: true
 
 # Shell
 #

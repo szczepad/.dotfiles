@@ -21,16 +21,13 @@ return {
 
     local languages = {
       javascript = {
-        linter = eslint_d,
-        formatter = prettier_d,
+        {linter = eslint_d},
+        {formatter = prettier_d},
       },
       go = {
         {formatter = gofumpt},
         {formatter = goimports},
         {formatter = golines},
-      },
-      rust = {
-        {formatter = rustfmt},
       },
     }
 
@@ -48,20 +45,12 @@ return {
 
     require('lspconfig').efm.setup(vim.tbl_extend('force',efmls_config,{}))
 
-    -- This is really useful! See available options `:h vim.lsp`
-    vim.api.nvim_create_autocmd("LspAttach", {
-      group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-      callback = function(ev)
-        local opts = { buffer = ev.buf }
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-      end,
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = buffer,
+        callback = function()
+            vim.lsp.buf.format { async = false }
+        end
     })
-
     -- Server setup here
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     lspconfig.tsserver.setup({})
