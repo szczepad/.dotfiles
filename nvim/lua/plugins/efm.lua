@@ -19,6 +19,8 @@ return {
 
     local rustfmt = require("efmls-configs.formatters.rustfmt")
 
+    local markdownlint = require('efmls-configs.linters.markdownlint')
+
     local languages = {
       javascript = {
         {linter = eslint_d},
@@ -37,6 +39,10 @@ return {
         {formatter = goimports},
         {formatter = golines},
       },
+      markdown = {
+        {linter = markdownlint},
+        {formatter = markdownlint},
+      }
     }
 
     local efmls_config = {
@@ -64,7 +70,7 @@ return {
     lspconfig.tsserver.setup({})
 
     lspconfig.efm.setup({
-      filetypes = { "typescript", "javascript","typescriptreact","javascriptreact","javascript.jsx","javascript.tsx","go" },
+      filetypes = { "typescript", "javascript","typescriptreact","javascriptreact","javascript.jsx","javascript.tsx","go","markdown"},
       on_attach = require("lsp-format").on_attach,
       init_options = { documentformatting = true },
       settings = {
@@ -73,6 +79,7 @@ return {
           typescriptreact = { prettier_d },
           go = { gofumpt, goimports,golines },
           rust = {rustfmt},
+          markdown = {markdownlint},
         },
       },
     })

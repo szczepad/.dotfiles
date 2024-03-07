@@ -4,13 +4,11 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       -- LSP Support
-      { "williamboman/mason.nvim", cmd = "Mason", build = ":MasonUpdate" },
       {
-        "williamboman/mason-lspconfig.nvim",
-        config = function(_, opts) end,
+        'williamboman/mason-lspconfig.nvim',
+        dependencies = { 'williamboman/mason.nvim' },
       },
     },
-
     ---@class PluginLspOpts
     opts = {
       ---@type lspconfig.options
@@ -96,13 +94,12 @@ return {
           "cssls",
           "dockerls",
           "efm",
-          "eslint",
+          "eslint_d",
           "hclfmt",
           "helm_ls",
           "jsonls",
           "tailwindcss",
           "tsserver",
-          "eslint_d",
           "gofumpt",
           "goimports-reviser",
           "gopls",
@@ -110,14 +107,12 @@ return {
           "kotlin_language_server",
           "ktlint",
           "markdownlint",
-          "mdformat",
           "mypy",
           "nextls",
           "prettierd",
           "ruff",
           "tailwindcss",
           "terraformls",
-          "yamllint",
         },
       })
       mason_lspconfig.setup_handlers({
@@ -133,10 +128,7 @@ return {
       vim.diagnostic.config({
         underline = true,
         update_in_insert = false,
-        virtual_text = {
-          spacing = 4,
-          source = "if_many",
-        },
+        virtual_text = false,
         severity_sort = true,
         float = {
           focusable = true,
