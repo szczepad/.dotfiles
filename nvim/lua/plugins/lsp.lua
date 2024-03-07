@@ -92,9 +92,13 @@ return {
 
       mason_lspconfig.setup({
         ensure_installed = {
+          "azure_pipelines_ls",
           "cssls",
+          "dockerls",
           "efm",
           "eslint",
+          "hclfmt",
+          "helm_ls",
           "jsonls",
           "tailwindcss",
           "tsserver",
@@ -103,10 +107,17 @@ return {
           "goimports-reviser",
           "gopls",
           "gotests",
+          "kotlin_language_server",
+          "ktlint",
+          "markdownlint",
+          "mdformat",
+          "mypy",
           "nextls",
           "prettierd",
-          "typescript-language-server",
-          "yamlfmt",
+          "ruff",
+          "tailwindcss",
+          "terraformls",
+          "yamllint",
         },
       })
       mason_lspconfig.setup_handlers({
@@ -143,12 +154,12 @@ return {
     build = (not jit.os:find("Windows"))
       and "echo -e 'NOTE: jsregexp is optional, so not a big deal if it fails to build\n'; make install_jsregexp"
       or nil,
-    -- dependencies = {
-    --   "rafamadriz/friendly-snippets",
-    --   config = function()
-    --     require("luasnip.loaders.from_vscode").lazy_load()
-    --   end,
-    -- },
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      config = function()
+        require("luasnip.loaders.from_vscode").lazy_load()
+      end,
+    },
   },
   {
     "hrsh7th/nvim-cmp",

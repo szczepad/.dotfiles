@@ -10,8 +10,8 @@ return {
     local efmls = require("efmls-configs")
     -- Your formatters and linters
     -- https://github.com/creativenull/efmls-configs-nvim/blob/main/doc/SUPPORTED_LIST.md
-    local prettier_d = require("efmls-configs.linters.eslint_d")
-    local eslint_d = require("efmls-configs.formatters.prettier_d")
+    local eslint_d = require("efmls-configs.linters.eslint_d")
+    local prettier_d = require("efmls-configs.formatters.prettier_d")
 
     local gofumpt = require("efmls-configs.formatters.gofumpt")
     local goimports = require("efmls-configs.formatters.goimports")
@@ -23,6 +23,14 @@ return {
       javascript = {
         {linter = eslint_d},
         {formatter = prettier_d},
+      },
+      typescript = {
+        linter = eslint_d,
+        formatter = prettier_d,
+      },
+      typescriptreact = {
+        linter = eslint_d,
+        formatter = prettier_d,
       },
       go = {
         {formatter = gofumpt},
