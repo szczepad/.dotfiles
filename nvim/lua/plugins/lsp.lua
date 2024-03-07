@@ -4,13 +4,11 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       -- LSP Support
-      { "williamboman/mason.nvim", cmd = "Mason", build = ":MasonUpdate" },
       {
-        "williamboman/mason-lspconfig.nvim",
-        config = function(_, opts) end,
+        'williamboman/mason-lspconfig.nvim',
+        dependencies = { 'williamboman/mason.nvim' },
       },
     },
-
     ---@class PluginLspOpts
     opts = {
       ---@type lspconfig.options
@@ -69,6 +67,17 @@ return {
         require("cmp_nvim_lsp").default_capabilities()
       )
 
+      	local signs = {
+          { name = "DiagnosticSignError", text = "" },
+          { name = "DiagnosticSignWarn", text = "" },
+          { name = "DiagnosticSignHint", text = "" },
+          { name = "DiagnosticSignInfo", text = "" },
+        }
+
+      for _, sign in ipairs(signs) do
+        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+      end
+
       local lsp_attach = function(client, bufnr)
         local key_opts = { buffer = bufnr, remap = false }
 
@@ -84,41 +93,37 @@ return {
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, key_opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, key_opts)
         vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, key_opts)
-
-        if client.name ~= "null-ls" then
-          client.server_capabilities.documentFormattingProvider = false
-        end
       end
 
       mason_lspconfig.setup({
         ensure_installed = {
+          "ansiblels",
           "azure_pipelines_ls",
           "cssls",
           "dockerls",
           "efm",
-          "eslint",
-          "hclfmt",
           "helm_ls",
           "jsonls",
           "tailwindcss",
           "tsserver",
-          "eslint_d",
-          "gofumpt",
-          "goimports-reviser",
           "gopls",
-          "gotests",
           "kotlin_language_server",
-          "ktlint",
-          "markdownlint",
-          "mdformat",
-          "mypy",
-          "nextls",
-          "prettierd",
-          "ruff",
+          "pylsp",
+          "ruff_lsp",
           "tailwindcss",
           "terraformls",
-          "yamllint",
         },
+        --- The following will have to be installed with mason manually 
+        -- eslint_d
+        -- gofumpt
+        -- goimports-reviser
+        -- "gotests",
+        -- hadolint
+        -- markdownlint
+        -- mypy
+        -- prettierd
+        -- yamllint
+        -- ansible-lint
       })
       mason_lspconfig.setup_handlers({
         function(server_name)
@@ -133,10 +138,7 @@ return {
       vim.diagnostic.config({
         underline = true,
         update_in_insert = false,
-        virtual_text = {
-          spacing = 4,
-          source = "if_many",
-        },
+        virtual_text = false,
         severity_sort = true,
         float = {
           focusable = true,
