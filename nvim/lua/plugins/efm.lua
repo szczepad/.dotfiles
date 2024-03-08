@@ -10,39 +10,42 @@ return {
     local efmls = require("efmls-configs")
     -- Your formatters and linters
     -- https://github.com/creativenull/efmls-configs-nvim/blob/main/doc/SUPPORTED_LIST.md
-    local eslint_d = require("efmls-configs.linters.eslint_d")
-    local prettier_d = require("efmls-configs.formatters.prettier_d")
-
-    local gofumpt = require("efmls-configs.formatters.gofumpt")
-    local goimports = require("efmls-configs.formatters.goimports")
-    local golines = require("efmls-configs.formatters.golines")
-
-    local rustfmt = require("efmls-configs.formatters.rustfmt")
-
-    local markdownlint = require('efmls-configs.linters.markdownlint')
-
     local languages = {
-      javascript = {
-        {linter = eslint_d},
-        {formatter = prettier_d},
-      },
-      typescript = {
-        linter = eslint_d,
-        formatter = prettier_d,
-      },
-      typescriptreact = {
-        linter = eslint_d,
-        formatter = prettier_d,
+      dockerfile = {
+        require('efmls-configs.linters.hadolint'),
       },
       go = {
-        {formatter = gofumpt},
-        {formatter = goimports},
-        {formatter = golines},
+        require("efmls-configs.formatters.gofumpt"),
+        require("efmls-configs.formatters.goimports"),
+        require("efmls-configs.formatters.golines"),
+      },
+      javascript = {
+        require("efmls-configs.linters.eslint_d"),
+        require("efmls-configs.formatters.prettier_d"),
       },
       markdown = {
-        {linter = markdownlint},
-        {formatter = markdownlint},
-      }
+        require('efmls-configs.linters.markdownlint'),
+        require('efmls-configs.formatters.mdformat'),
+      },
+      python = {
+        require('efmls-configs.linters.mypy'),
+        require('efmls-configs.formatters.ruff'),
+      },
+      terraform = {
+        require('efmls-configs.formatters.terraform_fmt'),
+      },
+      typescript = {
+        require("efmls-configs.linters.eslint_d"),
+        require("efmls-configs.formatters.prettier_d"),
+      },
+      typescriptreact = {
+        require("efmls-configs.linters.eslint_d"),
+        require("efmls-configs.formatters.prettier_d"),
+      },
+      yaml = {
+        require("efmls-configs.formatters.prettier_d"),
+        require('efmls-configs.linters.yamllint')
+      },
     }
 
     local efmls_config = {
@@ -70,17 +73,11 @@ return {
     lspconfig.tsserver.setup({})
 
     lspconfig.efm.setup({
-      filetypes = { "typescript", "javascript","typescriptreact","javascriptreact","javascript.jsx","javascript.tsx","go","markdown"},
+      filetypes = vim.tbl_keys(languages),
       on_attach = require("lsp-format").on_attach,
       init_options = { documentformatting = true },
       settings = {
-        languages = {
-          typescript = { prettier_d },
-          typescriptreact = { prettier_d },
-          go = { gofumpt, goimports,golines },
-          rust = {rustfmt},
-          markdown = {markdownlint},
-        },
+        languages = languages,
       },
     })
   end,
