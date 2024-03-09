@@ -23,6 +23,9 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>",opts)
 -- Aerial
 keymap("n", "<leader>a", ":NvimTreeClose<CR>:AerialToggle<CR>",opts)
 
+-- Neorg 
+keymap("n", "<leader>ww", ":Neorg workspace notes<CR>",opts)
+
 -- LSP
 keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 

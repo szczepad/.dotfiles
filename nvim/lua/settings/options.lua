@@ -34,7 +34,5 @@ vim.opt.sidescrolloff = 8
 
 vim.opt.shortmess:append "c"
 
-vim.g.vimwiki_global_ext = 0
-
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
