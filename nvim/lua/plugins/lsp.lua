@@ -112,6 +112,7 @@ return {
           "ruff_lsp",
           "tailwindcss",
           "terraformls",
+          "yamlls",
         },
         --- The following will have to be installed with mason manually 
         -- eslint_d
@@ -169,6 +170,7 @@ return {
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp-signature-help", -- Function signature source for nvim-cmp
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
@@ -192,9 +194,10 @@ return {
         },
         sources = cmp.config.sources({
           { name = "nvim_lsp", priority = 1 },
-          { name = "luasnip", priority = 5, keyword_length = 2 },
-          -- { name = "buffer", priority = 10, keyword_length = 3 },
           { name = "path", priority = 2 },
+          { name = "luasnip", priority = 5, keyword_length = 2 },
+          { name = "nvim_lsp_signature_help",priority = 6 },
+          { name = "buffer", priority = 10, keyword_length = 3 },
         }),
         mapping = cmp.mapping.preset.insert({
           ["<C-Space>"] = cmp.mapping.complete(),

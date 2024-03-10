@@ -16,7 +16,11 @@ return {
             },
           },
         },
-        ["core.completion"] = {},
+        ["core.completion"] = {
+          config = {
+            engine = "nvim-cmp",
+          },
+        },
       },
     }
   end,
