@@ -1,0 +1,82 @@
+set scrolloff=5 sidescrolloff=10
+set hlsearch
+set smartcase
+
+"Set leader to <space>
+let mapleader = " "
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+set commentary
+set surround
+set which-key
+set nerdtree
+
+" Run
+let g:WhichKeyDesc_run = "<leader>r Run"
+map <leader>rn <Action>(RunClass)
+let g:WhichKeyDesc_run_class = "<leader>rn Run Class"
+map <leader>rc <Action>(ChooseRunConfiguration)
+let g:WhichKeyDesc_run_choose_configuration = "<leader>rc Run Configuration"
+map <leader>rs <Action>(Stop)
+let g:WhichKeyDesc_run_stop = "<leader>rs Stop"
+map <leader>rr <Action>(Rerun)
+let g:WhichKeyDesc_run_rerun = "<leader>rr Rerun"
+map <leader>rd <Action>(DebugClass)
+let g:WhichKeyDesc_run_debug = "<leader>rd Debug Nearest"
+map <leader>rh <Action>(ImportTests)
+lht g:WhichKeyDesc_run_import_tests = "<leader>rh Test History"
+map <leader>rm <Action>(RunMenu)
+let g:WhichKeyDesc_run_menu = "<leader>rm Menu"
+map <leader>rf <Action>(RerunFailedTests)
+let g:WhichKeyDesc_run_failed = "<leader>rf Rerun Failed"
+
+""" Debugging
+let g:WhichKeyDesc_debugging = "<leader>d Debugging"
+map <leader>dt <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_debugging_toggle_breakpoint = "<leader>dt Toggle Break Point"
+map <leader>ds <Action>(PhpListenDebugAction)
+let g:WhichKeyDesc_debugging_listen = "<leader>ds Start Listening"
+map <leader>do <Action>(StepOver)
+let g:WhichKeyDesc_debugging_step_over = "<leader>do Step Over"
+map <leader>di <Action>(StepInto)
+let g:WhichKeyDesc_debugging_step_into = "<leader>di Step Into"
+map <leader>dr <Action>(EvaluateExpression)
+let g:WhichKeyDesc_debugging_repl = "<leader>dr Repl (Evaluate)"
+map <leader>dC <Action>(RunToCursor)
+let g:WhichKeyDesc_debugging_run_to_cursor = "<leader>dC Run To Cursor"
+map <leader>dc <Action>(Resume)
+let g:WhichKeyDesc_debugging_resume = "<leader>dc Resume"
+
+" don't lose selection when indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
+
+" tab navigation
+nmap H :action PreviousTab<CR>
+nmap L :action NextTab<CR>
+nmap Q <Action>(CloseContent)
+
+
+ let g:WhichKeyDesc_close_inactive = "<Leader> ü Close all but active"
+nnoremap <leader>ü :action CloseAllEditorsButActive<CR>
+
+"Code Navigation
+map <leader>ne <Action>(GotoNextError)
+let g:WhichKeyDesc_navigation_next_error = "<leader>ne Next Error"
+map <leader>no <Action>(NextOccurence)
+let g:WhichKeyDesc_navigation_next_occurence = "<leader>no Next Occurrence"
+nmap gr :action ShowUsages<CR>
+nmap gi :action GotoImplementation<CR>
+nmap gs :action GotoSuperMethod<CR>
+nmap <buffer> gn <Action>(MethodDown)
+nmap <buffer> gp <Action>(MethodUp)
+
+ map <C-z> <Action>(ToggleDistractionFreeMode)
+ let g:WhichKeyDesc_distraction_free = "<C-z> Toggle Distraction Free Mode"
