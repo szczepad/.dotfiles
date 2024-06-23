@@ -31,6 +31,10 @@ return {
         require('efmls-configs.linters.mypy'),
         require('efmls-configs.formatters.ruff'),
       },
+      sql = {
+        require('efmls-configs.linters.sqlfluff'),
+        require('efmls-configs.formatters.sql-formatter'),
+      },
       terraform = {
         require('efmls-configs.formatters.terraform_fmt'),
       },
