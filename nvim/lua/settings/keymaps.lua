@@ -21,7 +21,7 @@ keymap("n","<C-l>","<C-w>l", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>",opts)
 
 -- Aerial
-keymap("n", "<leader>a", ":NvimTreeClose<CR>:AerialToggle<CR>",opts)
+keymap("n", "<leader>a", ":NvimTreeClose<CR>:AerialToggle<CR>",{ noremap= true, silent=true, desc="Toggle Aerial"})
 
 -- Neorg 
 keymap("n", "<leader>ww", ":Neorg workspace notes<CR>",opts)
@@ -51,9 +51,6 @@ keymap("n","<S-q>", ":Bdelete<CR>",opts)
 -- Telescope
 keymap("n","<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",opts)
 keymap("n", "<c-f>", "<cmd>Telescope live_grep<cr>", opts)
-
--- Tagbar
-keymap("n","<leader>t",":TagbarToggle<CR>",opts)
 
 -- Git
 keymap("n","<leader>gs", ":Git<CR>",opts)
