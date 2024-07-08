@@ -16,12 +16,24 @@ return {
       },
       go = {
         require("efmls-configs.formatters.gofumpt"),
+        -- require('efmls-configs.formatters.gofmt'),
         require("efmls-configs.formatters.goimports"),
         require("efmls-configs.formatters.golines"),
+      },
+      gitcommit = {
+        require('efmls-configs.linters.gitlint'),
       },
       javascript = {
         require("efmls-configs.linters.eslint_d"),
         require("efmls-configs.formatters.prettier_d"),
+      },
+      json = {
+        require('efmls-configs.linters.jq'),
+        require('efmls-configs.formatters.prettier'),
+      },
+      lua = {
+        require('efmls-configs.linters.luacheck'),
+        require('efmls-configs.formatters.lua_format'),
       },
       markdown = {
         require('efmls-configs.linters.markdownlint'),
